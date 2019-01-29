@@ -16,6 +16,15 @@ function [ImgE]= Erosion(Img)
         end        
     end
     
-
-
 endfunction
+
+
+
+//TEST
+Img_=[0,0,0,0,0;0,1,1,1,0;0,1,1,1,0;0,1,1,1,0;0,0,0,0,0]
+
+ImgS=Erosion(Img_)
+figure(0)
+imshow(ImgS)
+figure(1)
+imshow(Img_)
