@@ -19,8 +19,3 @@ end
 retour = imgFinale;
 
 endfunction
-
-clear all; 
-xdel(winsid());
-retour = seuillage("C:\Users\sebas\Documents\Projet_Scilab\image.jpg",128);
-imshow(retour);
