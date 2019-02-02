@@ -1,4 +1,3 @@
-
 //Fonction dilatation matrice de point binaire
 function [ImgE]= Dilatation(Img)
     [TailleX,TailleY]=size(Img)

@@ -49,27 +49,30 @@ subplot(224)
 imshow(retourSoustraction);
 
 //Erosion et Dilatation
-exec('.\Erosion.sce',-1)
-exec('.\Dilatation.sce',-1)
-exec('.\Ouverture.sce',-1)
-exec('.\Fermeture.sce',-1)
-retourErosion = Erosion(retourImg1);
-retourDilatation = Dilatation(retourImg1);
-retourOuverture = Ouverture(retourImg1);
-retourFermeture = Fermeture(retourImg1);
 figure(1);
+exec('.\Erosion.sce',-1)
+retourErosion = Erosion(retourImg1);
 subplot(221)
 imshow(retourErosion);
+//Dilatation
+exec('.\Dilatation.sce',-1)
+retourDilatation = Dilatation(retourImg1);
 subplot(222)
 imshow(retourDilatation);
+//ouverture
+exec('.\Ouverture.sce',-1)
+retourOuverture = Ouverture(retourImg1);
 subplot(223)
 imshow(retourOuverture);
+//fermeture
+exec('.\Fermeture.sce',-1)
+retourFermeture = Fermeture(retourImg1);
 subplot(224)
 imshow(retourFermeture);
 
 //Squelette AntueJoul
 exec('.\SqueletteAntueJoul.sce',-1)
-Squelette = SqueletteAntuejoul(retourImg1);
+Squelette = SqueletteAntuejoul(imgRectangle);
 figure(4)
 subplot(221)
 imshow(Squelette)
