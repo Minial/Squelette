@@ -52,42 +52,35 @@ imshow(retourSoustraction);
 figure(1);
 exec('.\Erosion.sce',-1)
 retourErosion = Erosion(retourImg1);
-subplot(221)
+subplot(321)
 imshow(retourErosion);
 //Dilatation
 exec('.\Dilatation.sce',-1)
 retourDilatation = Dilatation(retourImg1);
-subplot(222)
+subplot(322)
 imshow(retourDilatation);
 //ouverture
 exec('.\Ouverture.sce',-1)
 retourOuverture = Ouverture(retourImg1);
-subplot(223)
+subplot(323)
 imshow(retourOuverture);
 //fermeture
 exec('.\Fermeture.sce',-1)
 retourFermeture = Fermeture(retourImg1);
-subplot(224)
+subplot(324)
 imshow(retourFermeture);
-
-//Squelette AntueJoul
-exec('.\SqueletteAntueJoul.sce',-1)
-Squelette = SqueletteAntuejoul(imgRectangle);
-figure(4)
-subplot(221)
-imshow(Squelette)
 
 //Amincissement et Epaississement
 exec('.\amincissement.sce',-1)
 matA=[1,1,1;1,1,1;2,2,2]
 retourAmincissement = amincissement(retourImg1,matA)
-subplot(223)
+subplot(325)
 imshow(retourAmincissement);
 
 exec('.\epaississement.sce',-1)
 matE=[1,1,1;1,0,1;2,2,2]
 retourEpaississement = epaississement(retourImg1,matE)
-subplot(224)
+subplot(326)
 imshow(retourEpaississement);
 
 //Amincissement Homotopique
@@ -99,3 +92,10 @@ retourSqueletteA = squeletteAmincissement(imgCarre)
 subplot(222)
 imshow(retourSqueletteA);
 
+//Squelette AntueJoul
+subplot(223)
+imshow(imgCarre);
+exec('.\SqueletteAntueJoul.sce',-1)
+Squelette = SqueletteAntuejoul(imgCarre);
+subplot(224)
+imshow(Squelette)

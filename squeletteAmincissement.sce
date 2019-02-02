@@ -1,5 +1,5 @@
 function retour= squeletteAmincissement(Img)
-exec('C:\Users\sebas\Documents\Git_Scilab\Squelette\amincissement.sce',-1)
+exec('.\amincissement.sce',-1)
 
 imgTravail = Img;
 sortie =0;
@@ -24,7 +24,7 @@ while(sortie==0)
     mat8=[2,1,1;0,1,1;0,0,2]
     imgTravail = amincissement(imgTravail,mat8)
     
-    exec('C:\Users\sebas\Documents\Git_Scilab\Squelette\soustractionImages.sce',-1)
+    exec('.\soustractionImages.sce',-1)
     retourSoustraction = soustractionImages(imgCompare,imgTravail);
 
     temp = find(retourSoustraction,255)
