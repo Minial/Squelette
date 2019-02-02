@@ -30,7 +30,7 @@ function [ImgE]= Dilatation(Img)
             for k = i-1:i+1
                 for l = j-1:j+1
                     if(Img(i,j)==1)
-                        ImgE(k,l)=0
+                        ImgE(k,l)=1
                     end
                 end
             end
