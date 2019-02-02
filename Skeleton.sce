@@ -1,5 +1,44 @@
+clear all
 
+//Images utiles
+imgRectangle = [
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0;
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+
+imgCarre = [
+0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,0,0,0,0,0,0,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,1,1,1,1,1,1,1,0,0;
+0,0,0,0,0,0,0,0,0,0,0;
+0,0,0,0,0,0,0,0,0,0,0];
 //Fonction erosion matrice de point binaire
+
+
 function [ImgE]= Erosion(Img)
     [TailleX,TailleY]=size(Img)
     //TailleY=size(Img(1))
@@ -53,7 +92,7 @@ function [NonVide] = VerificationImage(Img)
     for i=1:x
         for j=1:y
             if (Img(i,j)==1)
-                NonVide=%F
+                NonVide=%T
             end
         end
     end
@@ -61,17 +100,23 @@ endfunction
 
 function [ImgS] = SqueletteAntuejoul(Img)
     [x,y]=size(Img)
-    imgS=zeros(x,y)
+    ImgS_=zeros(x,y)
     ImgE=Img
     while VerificationImage(ImgE)==%T
-        ImgS=additionImages(ImgS,soustractionImages(ImgE,Ouverture(ImgE)))
+        ImgS_=additionImages(ImgS_,soustractionImages(ImgE,Ouverture(ImgE)))
         ImgE=Erosion(ImgE)
     end
+    ImgS=ImgS_
 endfunction
 
 
+Img7=SqueletteAntuejoul(imgRectangle)
+//Img7=Erosion(imgRectangle)
 
-
+figure(1)
+imshow(imgRectangle)
+figure(2)
+imshow(Img7)
 
 
 
@@ -254,3 +299,5 @@ end
 retour = imgFinale;
 
 endfunction
+
+
