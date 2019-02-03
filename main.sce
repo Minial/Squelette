@@ -72,7 +72,7 @@ imshow(retourFermeture);
 
 //Squelette AntueJoul
 exec('.\SqueletteAntueJoul.sce',-1)
-Squelette = SqueletteAntuejoul(imgRectangle);
+Squelette = SqueletteAntuejoul(retourImg2);
 figure(4)
 subplot(221)
 imshow(Squelette)
