@@ -1,6 +1,6 @@
 
-exec('./OuvertureH.sce',-1)
-exec('./ErosionH.sce',-1)
+exec('./OuvertureC.sce',-1)
+exec('./ErosionC.sce',-1)
 function [NonVide] = VerificationImage(Img)
     [x,y]=size(Img)
     NonVide=%F
@@ -18,8 +18,8 @@ function [ImgS] = SqueletteAntuejoul(Img)
     ImgS_=zeros(x,y)
     ImgE=Img
     while VerificationImage(ImgE)==%T
-        ImgS_=additionImages(ImgS_,soustractionImages(ImgE,OuvertureH(ImgE)))
-        ImgE=ErosionH(ImgE)
+        ImgS_=additionImages(ImgS_,soustractionImages(ImgE,OuvertureC(ImgE)))
+        ImgE=ErosionC(ImgE)
     end
     ImgS=ImgS_
 endfunction
