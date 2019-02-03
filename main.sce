@@ -70,16 +70,6 @@ retourFermeture = Fermeture(retourImg1);
 subplot(324)
 imshow(retourFermeture);
 
-<<<<<<< HEAD
-=======
-//Squelette AntueJoul
-exec('.\SqueletteAntueJoul.sce',-1)
-Squelette = SqueletteAntuejoul(retourImg2);
-figure(4)
-subplot(221)
-imshow(Squelette)
-
->>>>>>> Hexa
 //Amincissement et Epaississement
 exec('.\amincissement.sce',-1)
 matA=[1,1,1;1,1,1;2,2,2]
@@ -108,4 +98,13 @@ imshow(imgCarre);
 exec('.\SqueletteAntueJoul.sce',-1)
 Squelette = SqueletteAntuejoul(imgCarre);
 subplot(224)
+imshow(Squelette)
+
+//Squelette AntueJoul
+figure(3)
+subplot(121)
+imshow(retourImg2);
+exec('.\SqueletteAntueJoul.sce',-1)
+Squelette = SqueletteAntuejoul(retourImg2);
+subplot(122)
 imshow(Squelette)
